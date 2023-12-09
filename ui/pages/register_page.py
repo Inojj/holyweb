@@ -9,7 +9,7 @@ class RegisterPage:
     _PASSWORD: str = '//*[@id="password"]//input'
     _CONFORM_PASSWORD: str = '//*[@id="confirm_password"]//input'
     _SUBMIT_BUTTON: str = "//span[@class='p-button-label']"
-    STRONG_PASSWORD_PANEL: str = "#pv_id_4_panel"
+    _STRONG_PASSWORD_PANEL: str = "#pv_id_4_panel"
 
     @staticmethod
     @allure.step("Открыть страницу регистрации")
@@ -29,7 +29,7 @@ class RegisterPage:
     )
     def fill_confirm_password(self, page: Page, confirm_password: str) -> None:
         page.locator(self._CONFORM_PASSWORD).press_sequentially(confirm_password)
-        page.click(self.STRONG_PASSWORD_PANEL)
+        page.click(self._STRONG_PASSWORD_PANEL)
 
     @allure.step("Нажать кнопку submit")
     def click_submit_button(self, page: Page) -> None:
