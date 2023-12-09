@@ -1,0 +1,35 @@
+files: ^.
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+    -   id: check-yaml
+    -   id: end-of-file-fixer
+    -   id: trailing-whitespace
+
+-   repo: https://github.com/pycqa/isort
+    rev: 5.12.0
+    hooks:
+    -   id: isort
+        name: isort (python)
+        args: ["--profile", "black", "--filter-files"]
+
+-   repo: https://github.com/psf/black
+    rev: 23.1.0
+    hooks:
+    -   id: black
+        args: ["--config", "pyproject.toml"]
+
+-   repo: https://github.com/csachs/pyproject-flake8
+    rev: v6.1.0
+    hooks:
+    -   id: pyproject-flake8
+        additional_dependencies:
+            - flake8-builtins
+            - flake8-docstrings
+            - flake8-json
+            - flake8-comprehensions
+            - flake8-simplify
+            - pep8-naming
+            - flake8-bugbear
+        args: ["--config", "pyproject.toml"]

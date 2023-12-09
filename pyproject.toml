@@ -1,0 +1,64 @@
+[tool.poetry]
+name = "holyweb tests example"
+version = "0.1.0"
+description = ""
+authors = ["Ruslan Bolshakov <bchernysh@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pytest-rerunfailures = "^13.0"
+pytest = "^7.4.3"
+allure-pytest = "^2.13.2"
+requests = "^2.31.0"
+assertpy = "^1.1"
+pydantic = "^2.5.2"
+pytest-playwright = "^0.4.3"
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.5.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+addopts = "-p no:faker -v --disable-pytest-warnings --color=yes --code-highlight=yes --no-header"
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.flake8]
+# Specify the number of subprocesses that Flake8 will use to run checks in parallel.
+jobs = "auto"
+
+# Ignore some rules for particular files
+per-file-ignores = """
+    # docstrings for tests
+    ./tests/*.py:D101,D102,D103
+"""
+
+# Ignore docstring rules for decorators
+ignore-decorators='property'
+
+# Print the total number of errors.
+count = true
+
+# Provide a comma-separate list of glob patterns to include for checks.
+filename = "*.py"
+
+# Set the maximum length that any line (with some exceptions) may be.
+max-line-length = 120
+
+# Report all errors, even if it is on the same line as a `# NOQA` comment.
+disable-noqa = false
+
+# Provide a comma-separated list of glob patterns to exclude from checks.
+exclude = ".git,.idea,__pycache__,.pytest_cache,venv"
+
+# Specify a list of codes to ignore.
+ignore = """
+    W292, W503,
+    A003,
+    D100,D101,D103,D102,D104,D107,D203,D204,D205,D212,D400,
+    E501
+"""
