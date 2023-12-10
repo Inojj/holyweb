@@ -3,7 +3,9 @@ from assertpy import assert_that, soft_assertions
 
 
 @allure.tag("UI")
-@allure.title("Проверка формы регистрации")
+@allure.suite("UI тесты")
+@allure.sub_suite("Форма регистрации")
+@allure.title("Проверка регистрации")
 def test_ui_register(credentials, pages, page):
     pages.register.open_register_page(page)
     pages.register.fill_login(page, credentials.email)

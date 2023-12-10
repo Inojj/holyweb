@@ -1,14 +1,15 @@
 import allure
 from assertpy import assert_that
 
-from actions.api_actions.register import RegisterAPI
 from models.auth_obj import AuthObj
 
 
 @allure.tag("API")
-@allure.title("Регистрация пользователя")
-def test_register(credentials: AuthObj):
-    response = RegisterAPI.post_register(
+@allure.suite("API тесты")
+@allure.sub_suite("Endpoint register")
+@allure.title("Проверка регистрации")
+def test_register(credentials: AuthObj, registry):
+    response = registry.post_register(
         email=credentials.email,
         password=credentials.password,
         confirm_password=credentials.confirm_password,
