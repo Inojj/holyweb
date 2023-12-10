@@ -35,7 +35,7 @@ jobs:
         - name: installing dependencies
           run: poetry install
         - name: installing playwright
-          run: playwright install
+          run: poetry run playwright install
         - name: run tests
           run: poetry run pytest --alluredir allure-results --reruns 1 tests
         - name: Archive allure-results artifacts
