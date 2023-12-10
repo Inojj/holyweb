@@ -33,9 +33,9 @@ jobs:
         - name: install poetry
           run: curl -sSL https://install.python-poetry.org | python3 -
         - name: installing dependencies
-          run: |
-            poetry install,
-            playwright install.
+          run: poetry install
+        - name: installing playwright
+          run: playwright install
         - name: run tests
           run: poetry run pytest --alluredir allure-results --reruns 1 tests
         - name: Archive allure-results artifacts
