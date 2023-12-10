@@ -12,7 +12,7 @@ jobs:
         - name: Checkout repository
           uses: actions/checkout@v3
         - name: setup python 3.11
-          uses: setup Python
+          uses: actions/setup-python@v4
           with:
             python-version: "3.11"
         - name: install pre-commit
@@ -27,7 +27,7 @@ jobs:
         - name: Checkout repository
           uses: actions/checkout@v3
         - name: setup python 3.11
-          uses: setup Python
+          uses: actions/setup-python@v4
           with:
             python-version: "3.11"
         - name: install poetry
